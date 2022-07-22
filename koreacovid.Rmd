@@ -51,13 +51,18 @@ basicCC <- ggplot(dd2,aes(x=result,y=prcnt*100,fill=Sex))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
   
+When considering the frequency-based ggplot bar chart computed, it appears that there are about 1800 living females in the study, and around 1400 living males. However, more male persons were reported as dead than females, while there were a couple hundred more females in the study sample as a whole. According to the bar chart, the majority of the reported deaths were indicated as male. Further tests are required, preferably with a numerical test. 
 
 
-
-
-
-  
 ## Numerical results
+
+```{r}
+table1 <- xtabs(~result + Sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The table on top shows and examines the data in data in terms of the values of the result.  It seems that a solid majority of the people reported "dead" as a result were sixty-four percent of the men. In analyzing the bottom table, which was created based on gender, a higher proportion of men (three percent) were reported dead, as compared to only 1.4 percent of females who have died. However, inferential results are still required.
 
 
 ## Inferential results 
